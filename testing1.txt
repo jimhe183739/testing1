@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>温馨祝福信函</title>
+    <title>温馨祝福信函 - 附音乐</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
@@ -163,10 +163,132 @@
             color: #666;
         }
         
+        /* 音乐播放器样式 */
+        .music-player {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .music-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .music-album {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #e53939, #ff9e9e);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            margin-right: 12px;
+            animation: rotate 10s linear infinite;
+            animation-play-state: paused;
+        }
+        
+        .music-album.playing {
+            animation-play-state: running;
+        }
+        
+        .music-details {
+            flex: 1;
+            text-align: left;
+        }
+        
+        .music-title {
+            font-weight: bold;
+            font-size: 16px;
+            color: #e53939;
+        }
+        
+        .music-artist {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .music-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .control-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: #e53939;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .play-pause {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(145deg, #e53939, #ff6b6b);
+        }
+        
+        .progress-container {
+            flex: 1;
+            height: 4px;
+            background: #eee;
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 0 10px;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #e53939, #ff9e9e);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .volume-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .volume-slider {
+            flex: 1;
+            -webkit-appearance: none;
+            height: 4px;
+            background: #eee;
+            border-radius: 2px;
+            outline: none;
+        }
+        
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e53939;
+            cursor: pointer;
+        }
+        
         /* 动画效果 */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
         
         .letter {
@@ -187,6 +309,10 @@
                 padding: 10px 20px;
                 font-size: 14px;
             }
+            
+            .music-controls {
+                flex-wrap: wrap;
+            }
         }
     </style>
 </head>
@@ -194,7 +320,7 @@
     <div class="container">
         <div class="envelope">
             <div class="envelope-header">
-                <h1>❤️ 送给您的祝福信函 ❤️</h1>
+                <h1>❤️ 祝福信函 ❤️</h1>
                 <i class="fas fa-heart"></i>
             </div>
             
@@ -203,13 +329,52 @@
                 <div class="floral-decoration">✿</div>
                 
                 <div class="letter-content">
-                    <p>亲爱的朋友：</p>
-                    <p>在这个特别的日子里，我想送上最真挚的祝福。愿您的生活如诗般美好，如歌般欢快，如画般绚丽。</p>
-                    <p>感谢您一直以来的陪伴与支持，让我的生活增添了无数精彩。希望未来的日子里，我们依然能携手同行，分享快乐，分担忧愁。</p>
-                    <p>愿您身体健康，事业顺利，家庭幸福，所有的美好都与您相伴！</p>
+                    <p>亲爱的：</p>
+                    <p>我想送上最真挚的祝福。开心每一天，如白云般自由。</p>
+                    <p>自从遇到你后，让我的生活增添了无数精彩。感谢你的交流和陪伴，让我感到快乐。让我每天都在想念你。我也希望你快乐，身心愉悦。希望未来的日子里，我们依然能携手同行，分享快乐，分担忧愁。</p>
+                    <p>愿你身体健康，事业顺利，所有的美好都与你相伴！</p>
                     
-                    <div class="signature">您真诚的朋友</div>
-                    <div class="date">2023年11月18日</div>
+                    <div class="signature">一个爱你的真诚的朋友</div>
+                    <div class="date">2025年09月04日</div>
+                </div>
+                
+                <!-- 音乐播放器 -->
+                <div class="music-player">
+                    <div class="music-info">
+                        <div class="music-album" id="musicAlbum">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <div class="music-details">
+                            <div class="music-title">安静 - 周杰伦</div>
+                            <div class="music-artist">《范特西》2001</div>
+                        </div>
+                    </div>
+                    
+                    <div class="music-controls">
+                        <button class="control-btn" onclick="seekBack()">
+                            <i class="fas fa-backward-step"></i>
+                        </button>
+                        <button class="control-btn play-pause" onclick="togglePlay()">
+                            <i id="playIcon" class="fas fa-play"></i>
+                        </button>
+                        <button class="control-btn" onclick="seekForward()">
+                            <i class="fas fa-forward-step"></i>
+                        </button>
+                        
+                        <div class="progress-container">
+                            <div class="progress" id="progress"></div>
+                        </div>
+                        
+                        <div class="time" id="currentTime">0:00</div>
+                        <div class="time">/</div>
+                        <div class="time" id="totalTime">0:00</div>
+                    </div>
+                    
+                    <div class="volume-container">
+                        <i class="fas fa-volume-low"></i>
+                        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.1" value="0.7" onchange="setVolume(this.value)">
+                        <i class="fas fa-volume-high"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -224,12 +389,23 @@
         </div>
         
         <div class="wx-tip">
-            <p>在微信中打开即可查看和分享祝福</p>
+            <p>在微信中打开即可查看和分享祝福 | 点击播放按钮享受音乐</p>
         </div>
     </div>
 
     <script>
-        // 简单的动画交互效果
+        // 音频元素和播放状态
+        let audio = new Audio();
+        let isPlaying = false;
+        
+        // 音频源 - 需要替换为您自己的音频文件URL
+        // 由于版权原因，我不能直接提供受版权保护的音乐文件链接
+        // 您需要准备合法的音频文件并替换下面的URL
+        audio.src = 'https://example.com/path-to-your-audio-file.mp3'; // 请替换为实际音频URL
+        audio.loop = true;
+        audio.volume = 0.7;
+        
+        // 页面加载完成后初始化
         document.addEventListener('DOMContentLoaded', function() {
             // 分享按钮功能
             document.querySelector('.btn-share').addEventListener('click', function() {
@@ -244,7 +420,7 @@
                 }
             });
             
-            // 添加一些动态效果
+            // 信封点击效果
             const envelope = document.querySelector('.envelope');
             envelope.addEventListener('click', function() {
                 this.style.transform = 'translateY(-5px)';
@@ -252,7 +428,78 @@
                     this.style.transform = 'translateY(0)';
                 }, 300);
             });
+            
+            // 音频加载完成后更新总时长
+            audio.addEventListener('loadedmetadata', function() {
+                document.getElementById('totalTime').textContent = formatTime(audio.duration);
+            });
+            
+            // 更新播放进度
+            audio.addEventListener('timeupdate', function() {
+                const progressPercent = (audio.currentTime / audio.duration) * 100;
+                document.getElementById('progress').style.width = progressPercent + '%';
+                document.getElementById('currentTime').textContent = formatTime(audio.currentTime);
+            });
+            
+            // 音频结束时的处理
+            audio.addEventListener('ended', function() {
+                isPlaying = false;
+                updatePlayButton();
+            });
+            
+            // 设置初始音量
+            document.getElementById('volumeSlider').value = audio.volume;
         });
+        
+        // 播放/暂停切换
+        function togglePlay() {
+            if (isPlaying) {
+                audio.pause();
+            } else {
+                audio.play().catch(error => {
+                    console.log('播放失败，可能需要用户交互:', error);
+                    alert('请在微信中点击播放按钮来启动音乐播放');
+                });
+            }
+            isPlaying = !isPlaying;
+            updatePlayButton();
+        }
+        
+        // 更新播放按钮状态
+        function updatePlayButton() {
+            const playIcon = document.getElementById('playIcon');
+            const musicAlbum = document.getElementById('musicAlbum');
+            
+            if (isPlaying) {
+                playIcon.className = 'fas fa-pause';
+                musicAlbum.classList.add('playing');
+            } else {
+                playIcon.className = 'fas fa-play';
+                musicAlbum.classList.remove('playing');
+            }
+        }
+        
+        // 后退15秒
+        function seekBack() {
+            audio.currentTime = Math.max(0, audio.currentTime - 15);
+        }
+        
+        // 前进15秒
+        function seekForward() {
+            audio.currentTime = Math.min(audio.duration, audio.currentTime + 15);
+        }
+        
+        // 设置音量
+        function setVolume(volume) {
+            audio.volume = volume;
+        }
+        
+        // 格式化时间显示
+        function formatTime(seconds) {
+            const min = Math.floor(seconds / 60);
+            const sec = Math.floor(seconds % 60);
+            return min + ':' + (sec < 10 ? '0' + sec : sec);
+        }
     </script>
 </body>
 </html>
