@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>温馨祝福信函</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #f9e5e6 0%, #f5d0dc 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .envelope {
+            background: linear-gradient(145deg, #e53939, #ff6b6b);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(229, 57, 57, 0.3);
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .envelope-header {
+            background: rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+        
+        .envelope-header h1 {
+            font-size: 20px;
+            margin: 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        
+        .envelope-header i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .letter {
+            background: #fff;
+            padding: 25px;
+            min-height: 400px;
+            position: relative;
+        }
+        
+        .letter-content {
+            border: 1px dashed #e53939;
+            padding: 20px;
+            border-radius: 8px;
+            background: #fffdf0;
+        }
+        
+        .letter-content p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            text-align: justify;
+        }
+        
+        .signature {
+            text-align: right;
+            margin-top: 30px;
+            font-style: italic;
+            color: #e53939;
+            font-weight: bold;
+        }
+        
+        .date {
+            text-align: right;
+            margin-top: 5px;
+            font-size: 14px;
+            color: #888;
+        }
+        
+        .stamp {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #e53939;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-weight: bold;
+            transform: rotate(15deg);
+            border: 2px dotted #ffd700;
+        }
+        
+        .floral-decoration {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: #ff9e9e;
+            font-size: 24px;
+            opacity: 0.6;
+        }
+        
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            border-radius: 50px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        
+        .btn-share {
+            background: linear-gradient(145deg, #e53939, #ff6b6b);
+            color: white;
+        }
+        
+        .btn-reply {
+            background: #f8f8f8;
+            color: #e53939;
+            border: 1px solid #e53939;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .wx-tip {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .letter {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 600px) {
+            .letter-content p {
+                font-size: 15px;
+            }
+            
+            .envelope-header h1 {
+                font-size: 18px;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="envelope">
+            <div class="envelope-header">
+                <h1>❤️ 送给您的祝福信函 ❤️</h1>
+                <i class="fas fa-heart"></i>
+            </div>
+            
+            <div class="letter">
+                <div class="stamp">邮戳</div>
+                <div class="floral-decoration">✿</div>
+                
+                <div class="letter-content">
+                    <p>亲爱的朋友：</p>
+                    <p>在这个特别的日子里，我想送上最真挚的祝福。愿您的生活如诗般美好，如歌般欢快，如画般绚丽。</p>
+                    <p>感谢您一直以来的陪伴与支持，让我的生活增添了无数精彩。希望未来的日子里，我们依然能携手同行，分享快乐，分担忧愁。</p>
+                    <p>愿您身体健康，事业顺利，家庭幸福，所有的美好都与您相伴！</p>
+                    
+                    <div class="signature">您真诚的朋友</div>
+                    <div class="date">2023年11月18日</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-share">
+                <i class="fas fa-share-alt"></i> 分享祝福
+            </button>
+            <button class="btn btn-reply">
+                <i class="fas fa-reply"></i> 回复祝福
+            </button>
+        </div>
+        
+        <div class="wx-tip">
+            <p>在微信中打开即可查看和分享祝福</p>
+        </div>
+    </div>
+
+    <script>
+        // 简单的动画交互效果
+        document.addEventListener('DOMContentLoaded', function() {
+            // 分享按钮功能
+            document.querySelector('.btn-share').addEventListener('click', function() {
+                alert('已生成祝福链接，可通过微信分享给朋友');
+            });
+            
+            // 回复按钮功能
+            document.querySelector('.btn-reply').addEventListener('click', function() {
+                const name = prompt('请输入您的名字：');
+                if (name) {
+                    alert(`谢谢您，${name}！您的回复已收到。`);
+                }
+            });
+            
+            // 添加一些动态效果
+            const envelope = document.querySelector('.envelope');
+            envelope.addEventListener('click', function() {
+                this.style.transform = 'translateY(-5px)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(0)';
+                }, 300);
+            });
+        });
+    </script>
+</body>
+</html>
